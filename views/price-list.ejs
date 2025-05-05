@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Price List - LuxeClean</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="price-list-body">
+
+  <div class="navbar">
+    <nav>
+      <a href="/" class="btn">Home</a>
+      <a href="/AI-recommendation" class="btn">AI Recommendation</a>
+      <a href="/cart" class="btn">Cart</a>
+      <a href="/authentication/logout" class="btn">Logout</a>
+    </nav>
+  </div>
+
+  <header class="price-list-header">
+    <h1>Our Comprehensive Price List</h1>
+    <p>Explore our extensive range of services and competitive rates for premium dry cleaning and laundry services.</p>
+  </header>
+
+  <main class="price-list-container">
+
+    <section class="price-list-section">
+      <h2>Alterations</h2>
+      <table class="price-list-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Add To Cart</th>
+          </tr>
+        </thead>
+        <tbody>
+    
+          <tr>
+            <td>Zip Replacement</td>
+            <td>Repair & insert new zip</td>
+            <td>£10.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Zip Replacement">
+                <input type="hidden" name="description" value="Repair & insert new zip">
+                <input type="hidden" name="price" value="£10.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Trouser Hemming</td>
+            <td>Shorten leg length</td>
+            <td>£7.50</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Trouser Hemming">
+                <input type="hidden" name="description" value="Shorten leg length">
+                <input type="hidden" name="price" value="£7.50">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Jacket Lining</td>
+            <td>Replace full inner lining</td>
+            <td>£25.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Jacket Lining">
+                <input type="hidden" name="description" value="Replace full inner lining">
+                <input type="hidden" name="price" value="£25.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Sleeve Shortening</td>
+            <td>Tailored cut adjustment</td>
+            <td>£12.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Sleeve Shortening">
+                <input type="hidden" name="description" value="Tailored cut adjustment">
+                <input type="hidden" name="price" value="£12.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Eco Stitch Repair</td>
+            <td>Recycled thread stitching</td>
+            <td>£6.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Eco Stitch Repair">
+                <input type="hidden" name="description" value="Recycled thread stitching">
+                <input type="hidden" name="price" value="£6.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </section>
+    
+
+    <section class="price-list-section">
+      <h2>Childwear</h2>
+      <table class="price-list-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Add To Cart</th>
+          </tr>
+        </thead>
+        <tbody>
+    
+          <tr>
+            <td>School Blazer</td>
+            <td>Uniform dry clean</td>
+            <td>£7.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="School Blazer">
+                <input type="hidden" name="description" value="Uniform dry clean">
+                <input type="hidden" name="price" value="£7.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>School Shirt</td>
+            <td>Crisp press finish</td>
+            <td>£3.50</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="School Shirt">
+                <input type="hidden" name="description" value="Crisp press finish">
+                <input type="hidden" name="price" value="£3.50">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Raincoat (Kids)</td>
+            <td>Gentle fabric care</td>
+            <td>£9.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Raincoat (Kids)">
+                <input type="hidden" name="description" value="Gentle fabric care">
+                <input type="hidden" name="price" value="£9.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </section>
+    
+
+    <section class="price-list-section">
+      <h2>Clothing</h2>
+      <table class="price-list-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Add To Cart</th>
+          </tr>
+        </thead>
+        <tbody>
+    
+          <tr>
+            <td>Two-Piece Suit (Wool Blend)</td>
+            <td>Dry cleaned with precision press</td>
+            <td>£14.65</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Two-Piece Suit (Wool Blend)">
+                <input type="hidden" name="description" value="Dry cleaned with precision press">
+                <input type="hidden" name="price" value="£14.65">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Three-Piece Suit (Linen)</td>
+            <td>Pressed and hand finished</td>
+            <td>£18.74</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Three-Piece Suit (Linen)">
+                <input type="hidden" name="description" value="Pressed and hand finished">
+                <input type="hidden" name="price" value="£18.74">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Dinner Jacket (Velvet)</td>
+            <td>Specialist velvet treatment</td>
+            <td>£19.50</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Dinner Jacket (Velvet)">
+                <input type="hidden" name="description" value="Specialist velvet treatment">
+                <input type="hidden" name="price" value="£19.50">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Trousers (Formal)</td>
+            <td>Professional crease and clean</td>
+            <td>£8.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Trousers (Formal)">
+                <input type="hidden" name="description" value="Professional crease and clean">
+                <input type="hidden" name="price" value="£8.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Jeans (Denim)</td>
+            <td>Color-safe denim wash</td>
+            <td>£6.50</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Jeans (Denim)">
+                <input type="hidden" name="description" value="Color-safe denim wash">
+                <input type="hidden" name="price" value="£6.50">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Shirt (Cotton)</td>
+            <td>Laundry and press</td>
+            <td>£3.80</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Shirt (Cotton)">
+                <input type="hidden" name="description" value="Laundry and press">
+                <input type="hidden" name="price" value="£3.80">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Shirt (Silk)</td>
+            <td>Delicate fabric handling</td>
+            <td>£5.50</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Shirt (Silk)">
+                <input type="hidden" name="description" value="Delicate fabric handling">
+                <input type="hidden" name="price" value="£5.50">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Tie (Silk)</td>
+            <td>Spot treated and steamed</td>
+            <td>£4.75</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Tie (Silk)">
+                <input type="hidden" name="description" value="Spot treated and steamed">
+                <input type="hidden" name="price" value="£4.75">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Waistcoat (Wool)</td>
+            <td>Steam and hand finish</td>
+            <td>£7.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Waistcoat (Wool)">
+                <input type="hidden" name="description" value="Steam and hand finish">
+                <input type="hidden" name="price" value="£7.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Jacket (Casual)</td>
+            <td>Regular use cleaning</td>
+            <td>£10.50</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Jacket (Casual)">
+                <input type="hidden" name="description" value="Regular use cleaning">
+                <input type="hidden" name="price" value="£10.50">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Blazer (Linen)</td>
+            <td>Gentle clean and shape</td>
+            <td>£11.50</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Blazer (Linen)">
+                <input type="hidden" name="description" value="Gentle clean and shape">
+                <input type="hidden" name="price" value="£11.50">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Overcoat (Wool)</td>
+            <td>Heavy garment deep clean</td>
+            <td>£15.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Overcoat (Wool)">
+                <input type="hidden" name="description" value="Heavy garment deep clean">
+                <input type="hidden" name="price" value="£15.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Raincoat (Waterproof)</td>
+            <td>Waterproof fabric service</td>
+            <td>£13.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Raincoat (Waterproof)">
+                <input type="hidden" name="description" value="Waterproof fabric service">
+                <input type="hidden" name="price" value="£13.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Puffer Jacket (Down)</td>
+            <td>Feather-safe cleaning</td>
+            <td>£18.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Puffer Jacket (Down)">
+                <input type="hidden" name="description" value="Feather-safe cleaning">
+                <input type="hidden" name="price" value="£18.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Knitwear (Cashmere)</td>
+            <td>Low heat delicate clean</td>
+            <td>£9.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Knitwear (Cashmere)">
+                <input type="hidden" name="description" value="Low heat delicate clean">
+                <input type="hidden" name="price" value="£9.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Sweatshirt (Cotton Blend)</td>
+            <td>Casual wear freshen up</td>
+            <td>£6.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Sweatshirt (Cotton Blend)">
+                <input type="hidden" name="description" value="Casual wear freshen up">
+                <input type="hidden" name="price" value="£6.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Hoodie (Fleece)</td>
+            <td>Soft texture retention</td>
+            <td>£7.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Hoodie (Fleece)">
+                <input type="hidden" name="description" value="Soft texture retention">
+                <input type="hidden" name="price" value="£7.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Shorts (Casual)</td>
+            <td>Pressed and refreshed</td>
+            <td>£5.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Shorts (Casual)">
+                <input type="hidden" name="description" value="Pressed and refreshed">
+                <input type="hidden" name="price" value="£5.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Polo Shirt (Cotton)</td>
+            <td>Sporty wear service</td>
+            <td>£4.50</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Polo Shirt (Cotton)">
+                <input type="hidden" name="description" value="Sporty wear service">
+                <input type="hidden" name="price" value="£4.50">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>T-Shirt (Organic Cotton)</td>
+            <td>Eco-safe detergent used</td>
+            <td>£4.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="T-Shirt (Organic Cotton)">
+                <input type="hidden" name="description" value="Eco-safe detergent used">
+                <input type="hidden" name="price" value="£4.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </section>
+    
+
+    <section class="price-list-section">
+      <h2>Eco-friendly</h2>
+      <table class="price-list-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Add To Cart</th>
+          </tr>
+        </thead>
+        <tbody>
+    
+          <tr>
+            <td>Eco Shirt</td>
+            <td>Biodegradable detergent</td>
+            <td>£4.50</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Eco Shirt">
+                <input type="hidden" name="description" value="Biodegradable detergent">
+                <input type="hidden" name="price" value="£4.50">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Bamboo Dress</td>
+            <td>Natural fiber wash</td>
+            <td>£10.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Bamboo Dress">
+                <input type="hidden" name="description" value="Natural fiber wash">
+                <input type="hidden" name="price" value="£10.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Recycled Jacket</td>
+            <td>Low-energy cycle</td>
+            <td>£12.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Recycled Jacket">
+                <input type="hidden" name="description" value="Low-energy cycle">
+                <input type="hidden" name="price" value="£12.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Eco Detergent Add-on</td>
+            <td>Extra per item</td>
+            <td>£0.50</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Eco Detergent Add-on">
+                <input type="hidden" name="description" value="Extra per item">
+                <input type="hidden" name="price" value="£0.50">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Upcycling (Per Item)</td>
+            <td>Turn old into new</td>
+            <td>£20.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Upcycling (Per Item)">
+                <input type="hidden" name="description" value="Turn old into new">
+                <input type="hidden" name="price" value="£20.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </section>
+    
+
+    <section class="price-list-section">
+      <h2>Household</h2>
+      <table class="price-list-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Add To Cart</th>
+          </tr>
+        </thead>
+        <tbody>
+    
+          <tr>
+            <td>Curtains (Blackout)</td>
+            <td>Heavy-duty lining service</td>
+            <td>£7.20/sq.m</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Curtains (Blackout)">
+                <input type="hidden" name="description" value="Heavy-duty lining service">
+                <input type="hidden" name="price" value="£7.20/sq.m">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Duvet (Double, Feather)</td>
+            <td>Deep hygienic feather wash</td>
+            <td>£25.50</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Duvet (Double, Feather)">
+                <input type="hidden" name="description" value="Deep hygienic feather wash">
+                <input type="hidden" name="price" value="£25.50">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Bedspread (King)</td>
+            <td>Full spread treatment</td>
+            <td>£22.20</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Bedspread (King)">
+                <input type="hidden" name="description" value="Full spread treatment">
+                <input type="hidden" name="price" value="£22.20">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Blanket (King)</td>
+            <td>Thick material cleaning</td>
+            <td>£18.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Blanket (King)">
+                <input type="hidden" name="description" value="Thick material cleaning">
+                <input type="hidden" name="price" value="£18.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Mattress Protector (Double)</td>
+            <td>Barrier clean service</td>
+            <td>£17.25</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Mattress Protector (Double)">
+                <input type="hidden" name="description" value="Barrier clean service">
+                <input type="hidden" name="price" value="£17.25">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </section>
+    
+
+    <section class="price-list-section">
+      <h2>Laundry</h2>
+      <table class="price-list-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Add To Cart</th>
+          </tr>
+        </thead>
+        <tbody>
+    
+          <tr>
+            <td>Shirt (Wash & Press)</td>
+            <td>Pressed and folded</td>
+            <td>£3.80</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Shirt (Wash & Press)">
+                <input type="hidden" name="description" value="Pressed and folded">
+                <input type="hidden" name="price" value="£3.80">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Dress (Wash & Press)</td>
+            <td>Ready-to-wear finish</td>
+            <td>£8.75</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Dress (Wash & Press)">
+                <input type="hidden" name="description" value="Ready-to-wear finish">
+                <input type="hidden" name="price" value="£8.75">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Coat (Wash & Press)</td>
+            <td>Heavy item service</td>
+            <td>£14.80</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Coat (Wash & Press)">
+                <input type="hidden" name="description" value="Heavy item service">
+                <input type="hidden" name="price" value="£14.80">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Pillowcase</td>
+            <td>Soft press service</td>
+            <td>£1.95</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Pillowcase">
+                <input type="hidden" name="description" value="Soft press service">
+                <input type="hidden" name="price" value="£1.95">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Duvet Cover (King)</td>
+            <td>Allergy-safe rinse</td>
+            <td>£9.90</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Duvet Cover (King)">
+                <input type="hidden" name="description" value="Allergy-safe rinse">
+                <input type="hidden" name="price" value="£9.90">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </section>
+    
+
+    <section class="price-list-section">
+      <h2>Specialty</h2>
+      <table class="price-list-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Add To Cart</th>
+          </tr>
+        </thead>
+        <tbody>
+    
+          <tr>
+            <td>Wedding Dress</td>
+            <td>Delicate and intricate cleaning</td>
+            <td>£80.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Wedding Dress">
+                <input type="hidden" name="description" value="Delicate and intricate cleaning">
+                <input type="hidden" name="price" value="£80.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Leather Jacket</td>
+            <td>Specialist leather care</td>
+            <td>£35.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Leather Jacket">
+                <input type="hidden" name="description" value="Specialist leather care">
+                <input type="hidden" name="price" value="£35.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Down Jacket</td>
+            <td>Insulated winter cleaning</td>
+            <td>£25.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Down Jacket">
+                <input type="hidden" name="description" value="Insulated winter cleaning">
+                <input type="hidden" name="price" value="£25.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>Eco Wedding Dress</td>
+            <td>Plant-based solvent wash</td>
+            <td>£85.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Eco Wedding Dress">
+                <input type="hidden" name="description" value="Plant-based solvent wash">
+                <input type="hidden" name="price" value="£85.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </section>
+    
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 LuxeClean. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

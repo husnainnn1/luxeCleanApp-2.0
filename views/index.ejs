@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LuxeClean</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+  <!-- Top nav bar with auth check -->
+  <div class="navbar">
+    <nav>
+      <% if (user) { %>
+        <span class="user-welcome">Welcome, <%= user.firstname.toUpperCase() %></span>
+        <div class="menu-items">
+          <a class="btn" href="/price-list">View Price List</a>
+          <a class="btn" href="/AI-recommendation">AI Service Recommendation</a>
+
+          <!-- Modern styled inline search bar -->
+          <div class="search-bar-modern">
+            <form action="/search" method="GET">
+              <input type="text" name="q" placeholder="Search services..." required />
+              <button type="submit">Search</button>
+            </form>
+          </div>
+
+          <a class="btn" href="/authentication/logout">Log out</a>
+        </div>
+      <% } else { %>
+        <!-- If user not logged in, show login/register -->
+        <div class="menu-items">
+          <a class="btn" href="/login">Login</a>
+          <a class="btn" href="/register">Register</a>
+        </div>
+      <% } %>
+      <!-- Always show Home button -->
+      <a class="btn" href="/">Home</a>
+    </nav>
+  </div>
+
+  <!-- Main banner / hero image -->
+  <div class="hero">
+    <h1 class="hero-title">LuxeClean</h1>
+    <div class="hero-image">
+      <img src="/images/LuxeClean.png" alt="LuxeClean Logo">
+    </div>
+  </div>
+
+  <!-- Area for async post rendering -->
+  <div id="posts-container" class="posts-container">
+    <noscript>
+      <p class="noscript-message">JavaScript is required to view posts. Please enable it in your browser.</p>
+    </noscript>
+  </div>
+
+  <!-- Highlights key product features -->
+  <div id="features" class="features">
+    <h2>Core Features of LuxeClean</h2>
+    <div class="feature-list">
+      <div class="feature-item">
+        <h3>AI Recommendations</h3>
+        <p>Get optimal cleaning methods tailored to various fabric types, preserving quality and enhancing satisfaction.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Dynamic Pricing</h3>
+        <p>Receive real-time price estimates based on turnaround time, eco-options, and cleaning effort.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Smart Scheduling</h3>
+        <p>Effortlessly schedule pickups and deliveries to fit your schedule and needs.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Eco-Friendly Options</h3>
+        <p>Choose non-toxic, environmentally friendly cleaning options for a safer, sustainable approach.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brief background about the brand -->
+  <div id="about" class="about">
+    <h2>About LuxeClean</h2>
+    <p>
+      LuxeClean is your trusted partner for premium dry-cleaning services. 
+      We combine eco-friendly cleaning techniques with unparalleled attention to detail, 
+      ensuring your garments are cared for to perfection.
+    </p>
+    <p>
+      Experience the convenience of fast pickups, timely deliveries, and a commitment to quality 
+      that leaves you looking your best. At LuxeClean, we bring luxury to everyday care.
+    </p>
+  </div>
+
+  <!-- Footer with quick links -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <h3>LuxeClean</h3>
+        <p>Bringing luxury to your laundry.</p>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#about">About</a>
+          <a href="/contact">Contact Us</a>
+          <a href="/privacy">Privacy Policy</a>
+        </div>
+      </div>
+      <p>&copy; 2025 LuxeClean. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

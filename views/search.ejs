@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search - LuxeClean</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <div class="navbar">
+    <nav>
+      <a class="btn" href="/">Home</a>
+      <a class="btn" href="/price-list">Price List</a>
+      <a class="btn" href="/cart">Cart</a>
+      <a class="btn" href="/authentication/logout">Logout</a>
+    </nav>
+  </div>
+
+  <main class="search-container">
+    <h1>Search Our Services</h1>
+
+    <!-- Search form -->
+    <form action="/search" method="GET" class="search-form">
+      <input 
+        type="text" 
+        name="q" 
+        placeholder="Search by item or description..." 
+        value="<%= query || '' %>" 
+        required 
+      />
+      <button type="submit" class="btn">Search</button>
+    </form>
+
+    <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+      <ul class="error-list">
+        <% errors.forEach(err => { %>
+          <li><%= err.msg %></li>
+        <% }); %>
+      </ul>
+    <% } %>
+
+    <% if (typeof results !== 'undefined' && results.length > 0) { %>
+      <h2>Results for "<%= query %>":</h2>
+
+      <!-- Matching service results -->
+      <table class="price-list-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Add</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% results.forEach(service => { %>
+            <tr>
+              <td><%= service.item %></td>
+              <td><%= service.description %></td>
+              <td><%= service.price %></td>
+              <td>
+                <form action="/cart/add" method="POST">
+                  <input type="hidden" name="item" value="<%= service.item %>" />
+                  <input type="hidden" name="description" value="<%= service.description %>" />
+                  <input type="hidden" name="price" value="<%= service.price %>" />
+                  <button type="submit" class="btn">Add to Cart</button>
+                </form>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+
+    <% } else if (typeof query !== 'undefined') { %>
+      <p>No results found for "<%= query %>".</p>
+    <% } %>
+
+  </main>
+
+</body>
+</html>

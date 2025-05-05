@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="register-body">
+
+  <div class="form-container">
+
+    <!-- Brand image at the top of the form -->
+    <div class="form-image">
+      <img src="/images/LuxeClean.png" alt="Register Banner">
+    </div>
+
+    <h1 class="form-title">Create an Account</h1>
+
+    <% if (errors && errors.length > 0) { %>
+      <ul class="error-list">
+        <% errors.forEach(err => { %>
+          <li><%= err.msg %></li>
+        <% }) %>
+      </ul>
+    <% } %>
+
+    <!-- Registration form -->
+    <form action="/authentication/register" method="POST" novalidate>
+
+      <div class="form-group">
+        <label for="firstname" class="form-label">First Name</label>
+        <input 
+          type="text" 
+          id="firstname" 
+          name="firstname" 
+          required 
+          pattern="[A-Za-z]{2,}" 
+          class="form-input" />
+      </div>
+
+      <div class="form-group">
+        <label for="lastname" class="form-label">Last Name</label>
+        <input 
+          type="text" 
+          id="lastname" 
+          name="lastname" 
+          required 
+          pattern="[A-Za-z]{2,}" 
+          class="form-input" />
+      </div>
+
+      <div class="form-group">
+        <label for="username" class="form-label">Username</label>
+        <input 
+          type="text" 
+          id="username" 
+          name="username" 
+          required 
+          pattern="[a-zA-Z0-9_]{4,20}" 
+          class="form-input" />
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          required 
+          minlength="6" 
+          class="form-input" />
+      </div>
+
+      <button type="submit" class="form-button">Register</button>
+    </form>
+
+    <div class="form-footer">
+      <p>Already have an account? <a href="/login" class="form-link">Login</a></p>
+    </div>
+  </div>
+
+</body>
+</html>

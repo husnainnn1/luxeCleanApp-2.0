@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login - LuxeClean</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="login-body">
+
+  <!-- Centered container for the login UI -->
+  <div class="form-container">
+    <h1 class="form-title">LuxeClean</h1>
+
+    <!-- Basic login form - server handles authentication -->
+    <form action="/authentication/login" method="POST" novalidate>
+      <!-- Username input field with pattern to prevent invalid characters -->
+      <div class="form-group">
+        <label for="username" class="form-label">Username</label>
+        <input 
+          type="text" 
+          id="username" 
+          name="username" 
+          required 
+          minlength="3" 
+          maxlength="30"
+          pattern="^[a-zA-Z0-9_.-]+$"
+          class="form-input"
+          title="Alphanumeric, underscores, dashes, or periods only">
+      </div>
+
+      <!-- Password input with min length constraint -->
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          required 
+          minlength="6" 
+          maxlength="64"
+          class="form-input"
+          title="Minimum 6 characters">
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="form-button">Login</button>
+    </form>
+
+    <!-- Link for users without an account -->
+    <div class="form-footer">
+      <p>Don't have an account? <a href="/register" class="form-link">Register</a></p>
+    </div>
+  </div>
+
+</body>
+</html>

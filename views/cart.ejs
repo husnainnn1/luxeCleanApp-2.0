@@ -1,0 +1,165 @@
+<!-- views/cart.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - LuxeClean</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <!-- Top navigation -->
+  <div class="navbar">
+    <nav>
+      <a class="btn" href="/">Home</a>
+      <a class="btn" href="/price-list">Price List</a>
+      <a class="btn" href="/cart">Cart</a>
+      <a class="btn" href="/authentication/logout">Logout</a>
+    </nav>
+  </div>
+
+  <!-- Page heading -->
+  <header>
+    <h1>Your Cart</h1>
+  </header>
+
+  <main>
+    <!-- Display cart contents in table format -->
+    <table class="price-list-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (cart && cart.length > 0) { %>
+          <% cart.forEach((item, index) => { %>
+            <tr>
+              <td><%= item.item %></td>
+              <td><%= item.description %></td>
+              <td><%= item.price %></td>
+              <td>
+                <!-- Remove specific item -->
+                <form action="/cart/remove" method="POST">
+                  <input type="hidden" name="index" value="<%= index %>">
+                  <button type="submit" class="btn remove-btn">Remove</button>
+                </form>
+              </td>
+            </tr>
+          <% }); %>
+        <% } else { %>
+          <tr>
+            <td colspan="4">Your cart is empty.</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+    <!-- Show total + checkout actions if cart has items -->
+    <% if (cart && cart.length > 0) { %>
+      <div class="cart-total" style="text-align: center; margin-top: 20px;">
+        <h3>Total: £<%= total %></h3>
+      </div>
+
+      <div class="cart-actions">
+        <!-- Button to clear the entire cart -->
+        <form action="/cart/clear" method="POST">
+          <button type="submit" class="btn clear-btn">Clear Cart</button>
+        </form>
+
+        <!-- Launch modal to pick delivery date -->
+        <button type="button" class="btn pickup-btn" id="openDateBtn">Select Pickup/Delivery</button>
+
+        <!-- Proceed to checkout with selected date -->
+        <form action="/checkout" method="GET">
+          <input type="hidden" id="hiddenDeliveryDate" name="deliveryDate" />
+          <button type="submit" id="checkoutBtn" class="btn checkout-btn" disabled>Proceed to Checkout</button>
+        </form>
+      </div>
+    <% } %>
+
+    <p id="selectedDateText" class="selected-date-text">No date selected.</p>
+  </main>
+
+  <!-- Modal for selecting date -->
+  <div id="dateModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Select Pickup/Delivery Date</h2>
+      <input type="date" id="pickupDate">
+      <button class="btn confirm-btn" id="confirmDateBtn">Confirm</button>
+    </div>
+  </div>
+
+  <!-- Basic footer -->
+  <footer class="footer">
+    <p>&copy; 2025 LuxeClean. All rights reserved.</p>
+  </footer>
+
+  <!-- Script handles modal, date logic etc -->
+  <script src="/js/cart.js" defer></script>
+
+  <!-- Embedded styles for modal and cart-specific buttons -->
+  <style>
+    .cart-actions {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .pickup-btn {
+      background-color: #f0ad4e;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      margin: 15% auto;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .close {
+      float: right;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .confirm-btn {
+      background-color: #5cb85c;
+      margin-top: 10px;
+    }
+
+    .checkout-btn:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+
+    .selected-date-text {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #4a90e2;
+      font-weight: bold;
+    }
+  </style>
+</body>
+</html>

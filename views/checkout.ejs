@@ -1,0 +1,74 @@
+<!-- views/checkout.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - LuxeClean</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="checkout-body">
+
+  <!-- Basic nav to return home or back to cart -->
+  <div class="navbar">
+    <nav>
+        <a class="btn" href="/">Home</a>
+        <a class="btn" href="/cart">Back to Cart</a>
+    </nav>
+  </div>
+
+  <!-- Main checkout content area -->
+  <main class="checkout-container">
+    <h1>Checkout</h1>
+    <p>Review your order before proceeding to payment.</p>
+
+    <!-- Order breakdown -->
+    <table class="checkout-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Description</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% cart.forEach(item => { %>
+          <tr>
+            <td><%= item.item %></td>
+            <td><%= item.description %></td>
+            <td><%= item.price %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+    <!-- Summary section showing totals and surcharges if applicable -->
+    <div class="checkout-summary">
+        <% if (deliveryDate) {
+            const formattedDate = new Date(deliveryDate).toLocaleDateString("en-GB");
+       %>
+         <p><strong>Delivery Date:</strong> <%= formattedDate %></p>
+       <% } %>
+
+      <% if (surcharge > 0) { %>
+        <div class="surcharge-info">
+          <p><strong>Delivery Surcharge:</strong> £<%= surcharge %></p>
+          <p class="surcharge-note">
+            This fee applies because you've selected a 
+            <%= surcharge === 10 ? "same-day" : "next-day" %> delivery.
+            These options require additional resources and prioritisation.
+          </p>
+        </div>
+      <% } %>
+
+      <p class="total-amount"><strong>Total:</strong> £<%= total %></p>
+    </div>
+
+    <!-- Stripe payment form -->
+    <form action="/stripe/checkout" method="POST">
+      <button type="submit" class="btn pay-btn">Pay with Stripe</button>
+    </form>
+  </main>
+
+</body>
+</html>

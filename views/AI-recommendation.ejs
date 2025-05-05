@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Service Recommendation</title>
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Simple inline validation to prevent form submission if any dropdowns are empty -->
+  <script>
+    function validateForm() {
+      const requiredFields = [
+        'input-clothing-type',
+        'input-fabric-type',
+        'input-stain-type',
+        'input-urgency',
+        'input-condition',
+        'input-special-instructions'
+      ];
+
+      for (let id of requiredFields) {
+        const field = document.getElementById(id);
+        if (!field.value.trim()) {
+          alert("All fields must be selected.");
+          field.focus();
+          return false;
+        }
+      }
+
+      return true;
+    }
+  </script>
+</head>
+
+<body class="ai-recommendation-body">
+
+  <!-- Back button for user navigation -->
+  <div class="back-button-container">
+    <a href="/" class="back-button">&#8592; Back to Home</a>
+  </div>
+
+  <div class="ai-recommendation-container">
+    <h1 class="ai-recommendation-title">AI Service Recommendation</h1>
+
+    <!-- This form sends the user's selections to the AI recommendation endpoint -->
+    <form action="/AI-recommendation/calculate" method="POST" class="ai-recommendation-form" onsubmit="return validateForm()">
+
+      <!-- Each group below is a select dropdown styled in the app's theme -->
+
+      <div class="ai-form-group">
+        <label for="input-clothing-type" class="ai-form-label">Item Type</label>
+        <select id="input-clothing-type" name="clothingType" class="ai-form-input" required>
+          <option value="" disabled selected>Select...</option>
+          <option value="Shirt">Shirt</option>
+          <option value="Trousers">Trousers</option>
+          <option value="Dress">Dress</option>
+          <option value="Suit">Suit</option>
+          <option value="Coat">Coat</option>
+          <option value="Jacket">Jacket</option>
+          <option value="Skirt">Skirt</option>
+          <option value="Blouse">Blouse</option>
+          <option value="Scarf">Scarf</option>
+          <option value="Curtains">Curtains</option>
+          <option value="Duvet">Duvet</option>
+          <option value="Pillow">Pillow</option>
+          <option value="Blanket">Blanket</option>
+          <option value="Cushion Cover">Cushion Cover</option>
+          <option value="Tablecloth">Tablecloth</option>
+          <option value="Bed Sheet">Bed Sheet</option>
+          <option value="Wedding Dress">Wedding Dress</option>
+          <option value="Leather Jacket">Leather Jacket</option>
+          <option value="Trouser Hemming">Trouser Hemming</option>
+          <option value="Zip Replacement">Zip Replacement</option>
+          <option value="Jacket Lining">Jacket Lining</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="ai-form-group">
+        <label for="input-fabric-type" class="ai-form-label">Fabric Type</label>
+        <select id="input-fabric-type" name="fabric_type" class="ai-form-input" required>
+          <option value="" disabled selected>Select...</option>
+          <option value="Cotton">Cotton</option>
+          <option value="Wool">Wool</option>
+          <option value="Silk">Silk</option>
+          <option value="Synthetic">Synthetic</option>
+          <option value="Linen">Linen</option>
+          <option value="Leather">Leather</option>
+          <option value="Polyester">Polyester</option>
+          <option value="Velvet">Velvet</option>
+          <option value="Denim">Denim</option>
+          <option value="Cashmere">Cashmere</option>
+          <option value="Rayon">Rayon</option>
+          <option value="Acrylic">Acrylic</option>
+        </select>
+      </div>
+
+      <div class="ai-form-group">
+        <label for="input-stain-type" class="ai-form-label">Stain Type</label>
+        <select id="input-stain-type" name="stain_type" class="ai-form-input" required>
+          <option value="" disabled selected>Select...</option>
+          <option value="None">None</option>
+          <option value="Food">Food</option>
+          <option value="Wine">Wine</option>
+          <option value="Ink">Ink</option>
+          <option value="Oil">Oil</option>
+          <option value="Mud">Mud</option>
+          <option value="Blood">Blood</option>
+          <option value="Grease">Grease</option>
+          <option value="Makeup">Makeup</option>
+          <option value="Pet Stains">Pet Stains</option>
+          <option value="Coffee">Coffee</option>
+          <option value="Sweat">Sweat</option>
+        </select>
+      </div>
+
+      <div class="ai-form-group">
+        <label for="input-urgency" class="ai-form-label">Urgency</label>
+        <select id="input-urgency" name="urgency" class="ai-form-input" required>
+          <option value="" disabled selected>Select...</option>
+          <option value="Standard">Standard</option>
+          <option value="Express">Express</option>
+          <option value="Same-day">Same-day</option>
+        </select>
+      </div>
+
+      <div class="ai-form-group">
+        <label for="input-condition" class="ai-form-label">Condition</label>
+        <select id="input-condition" name="clothing_condition" class="ai-form-input" required>
+          <option value="" disabled selected>Select...</option>
+          <option value="Light">Light</option>
+          <option value="Moderate">Moderate</option>
+          <option value="Heavy">Heavy</option>
+          <option value="Stained">Stained</option>
+        </select>
+      </div>
+
+      <div class="ai-form-group">
+        <label for="input-special-instructions" class="ai-form-label">Special Care</label>
+        <select id="input-special-instructions" name="special_instructions" class="ai-form-input" required>
+          <option value="" disabled selected>Select...</option>
+          <option value="None">None</option>
+          <option value="Delicate">Delicate</option>
+          <option value="Hand wash">Hand wash</option>
+          <option value="Color-sensitive">Color-sensitive</option>
+          <option value="Heavily Embroidered">Heavily Embroidered</option>
+          <option value="Beaded">Beaded</option>
+          <option value="Silk-special">Silk-special</option>
+          <option value="Shrink-prone">Shrink-prone</option>
+        </select>
+      </div>
+
+      <!-- Final submit button to initiate AI prediction -->
+      <button type="submit" class="ai-form-button">Calculate Service</button>
+    </form>
+  </div>
+</body>
+</html>
