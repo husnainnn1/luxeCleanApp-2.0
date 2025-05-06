@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import joblib
@@ -26,11 +27,11 @@ def handle_preflight():
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
-        print("🔥 /predict called")
-        print("📦 Request body:", request.data)
+        print(" /predict called")
+        print(" Request body:", request.data)
 
         data = request.get_json()
-        print("📦 Parsed JSON:", data)
+        print(" Parsed JSON:", data)
 
         if not data:
             return jsonify({'error': 'No input received'}), 400
@@ -50,7 +51,7 @@ def predict():
         return jsonify({'recommendation': result})
 
     except Exception as err:
-        print("❌ Prediction failed:", err)
+        print(" Prediction failed:", err)
         return jsonify({'error': str(err)}), 500
 
 @app.after_request
