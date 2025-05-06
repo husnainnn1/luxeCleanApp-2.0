@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import joblib
 import pandas as pd
+import os
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
@@ -72,6 +73,10 @@ def add_cors_headers(response):
     response.headers.add('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
     return response
 
-if __name__ == '__main__':
-    app.run(port=5050, debug=True)
+#if __name__ == '__main__':
+#   app.run(port=5050, debug=True)
 
+
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
