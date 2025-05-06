@@ -42,12 +42,12 @@ router.post('/calculate', async (req, res) => {
     res.redirect('/AI-recommendation/results');
   } catch (err) {
     // Handle failure from Flask API
-    console.error('❌ Error contacting Flask API:', err.message);
+    console.error(' Error contacting Flask API:', err.message);
 
     if (err.response) {
-      console.error('❌ Status Code:', err.response.status);
-      console.error('❌ Response Headers:', err.response.headers);
-      console.error('❌ Response Body:', err.response.data);
+      console.error(' Status Code:', err.response.status);
+      console.error(' Response Headers:', err.response.headers);
+      console.error(' Response Body:', err.response.data);
     }
 
     res.status(500).send('Error processing your request. Try again later.');

@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const Service = require('./models/Service');
+const bcrypt = require('bcryptjs');
+
 
 const app = express();
 const port = 8000;
@@ -78,6 +80,12 @@ app.get('/success', (req, res) => {
 app.get('/privacy', (req, res) => res.render('privacy'));
 
 // Start server
-app.listen(port, () => {
-  console.log(`LuxeClean running at http://localhost:${port}`);
+//app.listen(port, () => {
+//  console.log(`LuxeClean running at http://localhost:${port}`);
+//});
+const PORT = process.env.PORT || 8000; // 8000 for local dev fallback
+
+app.listen(PORT, () => {
+  console.log(`LuxeClean running on port ${PORT}`);
 });
+
