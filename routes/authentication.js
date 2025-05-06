@@ -23,14 +23,25 @@ function ensureAuthenticated(req, res, next) {
 // Handle user registration
 router.post('/register',
   [
-    body('firstname').trim().isAlpha().withMessage('Only letters allowed')
-      .isLength({ min: 2 }).withMessage('Too short').escape(),
-
-    body('lastname').trim().isAlpha().withMessage('Only letters allowed')
-      .isLength({ min: 2 }).withMessage('Too short').escape(),
-
-    body('username').trim().isLength({ min: 4 }).withMessage('Username too short')
-      .matches(/^[a-zA-Z0-9_]+$/).withMessage('Invalid username chars').escape(),
+    body('firstname')
+      .trim()
+      .isAlpha().withMessage('First name should only contain letters.')
+      .isLength({ min: 2 }).withMessage('First name is too short (minimum 2 letters).')
+      .escape(),
+  
+    body('lastname')
+      .trim()
+      .isAlpha().withMessage('Last name should only contain letters.')
+      .isLength({ min: 2 }).withMessage('Last name is too short (minimum 2 letters).')
+      .escape(),
+  
+    body('username')
+      .trim()
+      .isLength({ min: 4 }).withMessage('Username must be at least 4 characters long.')
+      .matches(/^[a-zA-Z0-9_]+$/)
+      .withMessage('Username can only include letters, numbers, and underscores (_).')
+      .escape(),
+  
 
     body('password').custom(value => {
       const errors = [];

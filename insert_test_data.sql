@@ -1,9 +1,9 @@
-USE luxeCleanDB;
+
+USE railway;
 
 ALTER TABLE services
 ADD COLUMN category VARCHAR(100) NOT NULL;
 
->>>>>>> 1ff22d1 (fix data.sql)
 INSERT INTO services (item, description, price, category) VALUES
 ('Zip Replacement', 'Repair & insert new zip', '£10.00', 'Alterations'),
 ('Trouser Hemming', 'Shorten leg length', '£7.50', 'Alterations'),
