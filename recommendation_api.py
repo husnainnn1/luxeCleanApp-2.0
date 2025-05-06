@@ -43,7 +43,11 @@ def predict():
         for col in df.columns:
             if col in label_encoders:
                 le = label_encoders[col]
-                df[col] = le.transform(df[col])
+                try:
+                    df[col] = le.transform(df[col])
+                except ValueError as e:
+                    return jsonify({'error': f'Invalid input for "{col}": {df[col].values[0]}. Please select a valid option.'}), 400
+            
 
         # Align columns with expected model features
         for col in model_features:
