@@ -7,8 +7,10 @@ import pandas as pd
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
-# Load trained model and expected feature list
+# Load model and supporting encoders/features
 model = joblib.load('cleaning_recommendation_model.pkl')
+label_encoders = joblib.load('label_encoders.pkl')
+target_encoder = joblib.load('target_encoder.pkl')
 model_features = joblib.load('model_features.pkl')
 
 @app.route("/", methods=["GET"])
@@ -28,27 +30,32 @@ def handle_preflight():
 def predict():
     try:
         print(" /predict called")
-        print(" Request body:", request.data)
-
         data = request.get_json()
         print(" Parsed JSON:", data)
 
         if not data:
             return jsonify({'error': 'No input received'}), 400
 
-        # Prepare input
+        # Convert to DataFrame
         df = pd.DataFrame([data])
-        df_encoded = pd.get_dummies(df)
 
-        # Ensure all expected features exist
+        # Apply label encoders to each feature
+        for col in df.columns:
+            if col in label_encoders:
+                le = label_encoders[col]
+                df[col] = le.transform(df[col])
+
+        # Align columns with expected model features
         for col in model_features:
-            if col not in df_encoded:
-                df_encoded[col] = 0
-        df_encoded = df_encoded[model_features]
+            if col not in df.columns:
+                df[col] = 0
+        df = df[model_features]
 
-        # Make prediction
-        result = model.predict(df_encoded)[0]
-        return jsonify({'recommendation': result})
+        # Predict and decode result
+        prediction = model.predict(df)[0]
+        decoded_result = target_encoder.inverse_transform([prediction])[0]
+
+        return jsonify({'recommendation': decoded_result})
 
     except Exception as err:
         print(" Prediction failed:", err)
@@ -63,4 +70,3 @@ def add_cors_headers(response):
 
 if __name__ == '__main__':
     app.run(port=5050, debug=True)
-
