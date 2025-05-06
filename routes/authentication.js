@@ -20,22 +20,34 @@ function ensureAuthenticated(req, res, next) {
 }
 
 // Handle user registration
+// Handle user registration
 router.post('/register',
   [
     body('firstname').trim().isAlpha().withMessage('Only letters allowed')
       .isLength({ min: 2 }).withMessage('Too short').escape(),
+
     body('lastname').trim().isAlpha().withMessage('Only letters allowed')
       .isLength({ min: 2 }).withMessage('Too short').escape(),
+
     body('username').trim().isLength({ min: 4 }).withMessage('Username too short')
       .matches(/^[a-zA-Z0-9_]+$/).withMessage('Invalid username chars').escape(),
-    body('password')
-      .isStrongPassword({
-        minLength: 6,
-        minNumbers: 1,
-        minLowercase: 1,
-        minUppercase: 0,
-        minSymbols: 0
-      }).withMessage('Weak password')
+
+    body('password').custom(value => {
+      const errors = [];
+      if (value.length < 6) {
+        errors.push('Password must be at least 6 characters long');
+      }
+      if (!/[0-9]/.test(value)) {
+        errors.push('Password must include at least one number');
+      }
+      if (!/[a-z]/.test(value)) {
+        errors.push('Password must include at least one lowercase letter');
+      }
+      if (errors.length) {
+        throw new Error(errors.join('. '));
+      }
+      return true;
+    })
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -46,7 +58,6 @@ router.post('/register',
     const { firstname, lastname, username, password } = req.body;
 
     try {
-      // Secure the password before saving
       const hashed = await bcrypt.hash(password, 10);
       const newUser = await User.create({
         firstname: cleanInput(firstname),
@@ -55,10 +66,10 @@ router.post('/register',
         password: hashed
       });
 
-      console.log(`✅ Registered user: ${newUser.username}`);
+      console.log(` Registered user: ${newUser.username}`);
       return res.render('login');
     } catch (err) {
-      console.error("❌ Registration Error:", err.message);
+      console.error(" Registration Error:", err.message);
       return res.status(500).render('register', {
         errors: [{ msg: 'An error occurred. Try again later.' }]
       });

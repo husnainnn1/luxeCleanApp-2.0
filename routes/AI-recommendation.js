@@ -18,7 +18,7 @@ router.post('/calculate', async (req, res) => {
     // Send prediction request to local Flask API
     const response = await axios({
       method: 'post',
-      url: 'http://localhost:5050/predict',
+      url: process.env.FLASK_API_URL,
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'

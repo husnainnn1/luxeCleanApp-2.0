@@ -28,7 +28,7 @@ router.post(
     const { name, email, subject, message } = req.body;
 
     // Log it — I can later hook this up to email or DB
-    console.log("📨 Message received:", { name, email, subject, message });
+    console.log(" Message received:", { name, email, subject, message });
 
     // Show success message
     res.render('contact', { success: true, errors: [] });

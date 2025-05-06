@@ -37,7 +37,7 @@ router.get(
         }
       });
 
-      console.log('🔍 Results:', results.map(r => r.dataValues));
+      console.log(' Results:', results.map(r => r.dataValues));
       res.render('search', { query: q, results, errors: [] });
     } catch (err) {
       console.error('Search error:', err);

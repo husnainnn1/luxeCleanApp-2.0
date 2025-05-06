@@ -15,7 +15,7 @@ router.post('/checkout', async (req, res) => {
 
     // Doesn't let user proceed if nothing in the cart
     if (!cart.length) {
-      console.warn("❌ Attempted checkout with empty cart.");
+      console.warn(" Attempted checkout with empty cart.");
       return res.status(400).send("Cart is empty.");
     }
 
@@ -51,8 +51,8 @@ router.post('/checkout', async (req, res) => {
       payment_method_types: ['card'],
       mode: 'payment',
       line_items,
-      success_url: 'http://localhost:8000/success/',
-      cancel_url: 'http://localhost:8000/cart/',
+      success_url: `${process.env.BASE_URL}/success/`,
+      cancel_url: `${process.env.BASE_URL}/cart/`,
       metadata: {
         deliveryDate,
         deliverySurcharge: `£${surcharge}`,
@@ -92,10 +92,10 @@ router.post('/webhook', bodyParser.raw({ type: 'application/json' }), async (req
     const fullTotal = session.metadata.fullTotal;
     const email = session.customer_details?.email;
 
-    console.log('✅ Payment complete');
-    console.log('📦 Delivery Date:', deliveryDate);
-    console.log('💷 Surcharge:', surcharge);
-    console.log('💰 Total Paid:', fullTotal);
+    console.log(' Payment complete');
+    console.log(' Delivery Date:', deliveryDate);
+    console.log(' Surcharge:', surcharge);
+    console.log(' Total Paid:', fullTotal);
 
     // Email customer confirmation
     if (email) {
@@ -121,9 +121,9 @@ router.post('/webhook', bodyParser.raw({ type: 'application/json' }), async (req
 
       try {
         await transporter.sendMail(mailOptions);
-        console.log('📧 Confirmation email sent to', email);
+        console.log(' Confirmation email sent to', email);
       } catch (e) {
-        console.error('❌ Email failed:', e.message);
+        console.error(' Email failed:', e.message);
       }
     }
   }
