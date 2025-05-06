@@ -1,9 +1,6 @@
 
 USE railway;
 
-ALTER TABLE services
-ADD COLUMN category VARCHAR(100) NOT NULL;
-
 INSERT INTO services (item, description, price, category) VALUES
 ('Zip Replacement', 'Repair & insert new zip', '£10.00', 'Alterations'),
 ('Trouser Hemming', 'Shorten leg length', '£7.50', 'Alterations'),
@@ -64,3 +61,9 @@ INSERT INTO services (item, description, price, category) VALUES
 
 -- Select data for testing
 SELECT * FROM services WHERE item LIKE '%specialty%' OR description LIKE '%specialty%';
+SHOW DATABASES;
+USE railway;
+SHOW TABLES;
+SELECT COUNT(*) FROM services;
+
+
