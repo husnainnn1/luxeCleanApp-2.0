@@ -1,123 +1,168 @@
-# LuxeClean-appp
-Muhammad Hasnain Sohail
 
-Project Name: LuxeClean
+# LuxeClean-app  
+**Author:** Muhammad Hasnain Sohail  
+**Project:** LuxeClean – AI-Driven Dry Cleaning Web App  
 
-## Installation
-To set up and run LuxeClean, follow these steps to get everything up and running.
+---
 
-1. Install Node.js Dependencies
-First, install the required Node.js dependencies by running the following command in your project directory:
+##  Overview
 
+LuxeClean is an AI-powered dry-cleaning platform that streamlines the customer journey—from intelligent service recommendations to eco-friendly pricing, cart management, and secure checkout using Stripe. Built with Node.js, Flask, and MySQL, it delivers a seamless experience for modern laundry services.
+
+##  Installation Guide
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/husnainnn1/luxeCleanApp-2.0.git
+cd luxeCleanApp-2.0
+```
+
+---
+
+### 2. Install Node.js Dependencies
+
+```bash
 npm install
-npm install express
-npm install ejs
-npm install mysql
-npm install dotenv
-npm install bcryptjs
+```
 
-This will install all the necessary packages for the Node.js backend, including the server setup, database connection, and encryption utilities.
+Required Node modules include:
+- express  
+- ejs  
+- mysql  
+- dotenv  
+- bcryptjs  
+- express-validator  
+- helmet  
+- cors  
+- sequelize  
 
-2. Set up the Python Flask API
-LuxeClean uses a Python Flask API for AI-based recommendations and backend interactions. To get the API up and running, follow these steps:
+---
 
-## Install Python Dependencies
-If you haven't already, you need to install Python and pip (Python's package manager). Then, you can install the required Python libraries:
+### 3. Set Up Python Flask API
 
-pip install flask
-pip install flask-cors
-pip install scikit-learn  # For the machine learning model
-pip install numpy pandas  # For data handling in the model
-Set up the Flask Environment
-Make sure you have your Flask app ready. The main file should be something like recommendation_api.py. Make sure this file is in the correct directory.
+Navigate to the `python-backend/` or Flask folder.
 
-Add a .env file to configure environment variables like the port, database credentials, or any secrets needed for the model:
+Install dependencies:
 
-Example .env file:
+```bash
+pip install flask flask-cors scikit-learn numpy pandas joblib
+```
 
-FLASK_APP=recommendation_api.py
-FLASK_ENV=development
-DATABASE_URL=your-database-url
-Run the Flask API
-To run the Flask API locally, use this command:
+Ensure these `.pkl` files are in the Flask directory:
+- `cleaning_recommendation_model.pkl`  
+- `label_encoders.pkl`  
+- `target_encoder.pkl`  
+- `model_features.pkl`  
 
-flask run
-The Flask server will be available on http://127.0.0.1:5050.
+Create a `.env` file in the Node project root:
 
-## Usage
-Here’s how to get LuxeClean running:
+```
+FLASK_API_URL=http://localhost:10000/predict
+STRIPE_SECRET_KEY=your_stripe_secret_key
+STRIPE_WEBHOOK_SECRET=your_webhook_key
+EMAIL_USER=your_email@example.com
+EMAIL_PASS=your_email_app_password
+```
 
-1. Set up the MySQL Database
-You’ll need to set up a MySQL database to store user data and service information. Run these SQL files:
+Run the Flask API:
+
+```bash
+python ai_recommendation.py
+```
+
+By default, it runs at `http://127.0.0.1:10000`.
+
+---
+
+### 4. Set Up MySQL Database
 
 Log into MySQL:
 
-sudo mysql
-Create the database:
+```bash
+mysql -u root -p
+```
 
+Run:
+
+```sql
 source create_db.sql;
-Insert test data :
-
 source insert_test_data.sql;
-2. Start the Server
-Node.js Backend
-Once the database is set up, you can start the Node.js backend with this command:
+```
 
+Ensure the database name matches what's in your Sequelize config.
 
+---
+
+### 5. Start the Node.js Server
+
+```bash
 node index.js
-This will launch the main server and allow users to interact with the app at http://localhost:8000 (or whatever port you have configured).
+```
 
-Flask API
-To start the Flask API, navigate to your recommendation_api.py file directory and run:
+App will run at: `http://localhost:8000`
 
+## 🧪 Usage
 
-flask run
-This starts the Flask server, typically on http://127.0.0.1:5050.
+Once the servers are running, you can:
 
-Alternative Deployment (For Virtual Servers)
-If you want to deploy LuxeClean on a virtual server, follow these steps:
+- Register: `http://localhost:8000/register`
+- Login: `http://localhost:8000/login`
+- Browse services: `/price-list`
+- Use AI Recommendation: `/AI-recommendation`
+- Search services: `/search`
+- View cart & checkout: `/cart`
+- Final payment: via Stripe
 
-Clone the Repository:
+---
 
-git clone https://github.com/husnainnn1/LuxeClean-appp.git
-cd luxeclean
-Install Dependencies for Node.js:
+##  Features
 
+1. **User Registration/Login**  
+Secure authentication using bcrypt.
+
+2. **AI Recommendation System**  
+Predicts the best cleaning service using a RandomForest model trained on fabric type, stain, urgency, etc.
+
+3. **Eco-Friendly Price List**  
+Sustainability-focused services are tagged and priced accordingly.
+
+4. **Dynamic Cart**  
+Users can add/remove services, select delivery dates, and proceed to checkout.
+
+5. **Stripe Checkout**  
+Payment gateway integration for seamless transactions.
+
+6. **Service Search**  
+Fast, filtered lookup across multiple categories.
+
+7. **Data Persistence**  
+Uses MySQL with Sequelize ORM for all data handling.
+
+---
+
+##  Model Training
+
+Trained using a balanced dataset (`Balanced_Training_Data.csv`) and encoded using `LabelEncoder`. Stored models:
+- `cleaning_recommendation_model.pkl`  
+- `label_encoders.pkl`  
+- `target_encoder.pkl`  
+- `model_features.pkl`
+
+Model is integrated via a Flask API running on port 10000.
+
+---
+
+##  Optional Deployment
+
+To deploy LuxeClean on a cloud server:
+
+```bash
+git clone ...
+cd luxeCleanApp-2.0
 npm install
-Set up MySQL Database (run create_db.sql and insert_test_data.sql as described earlier).
-
-Run the Node.js Server:
-
+mysql < create_db.sql
+mysql < insert_test_data.sql
 node index.js
-Run the Flask API :
-
-flask run
-Now, LuxeClean should be up and running on your virtual server!
-
-## Features
-1. User Registration
-LuxeClean provides a secure way for new users to register for an account and access personalized services.
-
-2. User Login and Logout
-Users can easily log in and log out of their accounts. The system uses secure password hashing to ensure privacy.
-
-3. Homepage with Navigation
-The app features a clean and intuitive homepage, allowing users to navigate to different pages, including services and pricing.
-
-4. Pricing Page with eco-friendly options
-LuxeClean’s pricing page includes all the service options, including eco-friendly options and special services, along with detailed pricing for each item.
-
-5. AI-based Cleaning Recommendation
-LuxeClean’s AI-driven recommendation system helps users pick the right service for their specific needs. It’s powered by the Python Flask API, which uses machine learning to analyze user input and recommend the best services.
-
-6. Service Search
-Users can search for specific services within the app, making it easy to find what they need quickly.
-
-7. Order Management
-Users can manage their orders, track status, and view delivery or pickup schedules from their dashboard.
-
-8. Public API Integration
-The app can access publicly available APIs to enhance features, such as providing real-time weather data or fetching promotions and discounts.
-
-9. MySQL Database Storage
-All user and application data is stored in a MySQL database, ensuring data is reliable and accessible at all times.
+python ai_recommendation.py
+```
