@@ -44,8 +44,10 @@
   <div class="navbar">
     <nav>
       <a class="btn" href="/">Home</a>
+      <% if (user) { %>
       <a class="btn" href="/price-list">Price List</a>
       <a class="btn" href="/cart">Cart</a>
+    <% } %>
       <a class="btn" href="/contact">Contact</a>
     </nav>
   </div>
