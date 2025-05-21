@@ -77,7 +77,7 @@ app.get('/success', (req, res) => {
   req.session.cart = []; // Clear cart on successful checkout
   res.render('success');
 });
-app.get('/privacy', (req, res) => res.render('privacy'));
+app.get('/privacy', (req, res) => res.render('privacy', { user: req.session.user }));
 
 // Start server
 //app.listen(port, () => {

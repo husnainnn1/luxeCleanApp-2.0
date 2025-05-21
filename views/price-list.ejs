@@ -806,6 +806,79 @@
         </tbody>
       </table>
     </section>
+
+    <section class="price-list-section">
+      <h2>AI Recommended Services</h2>
+      <table class="price-list-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Add To Cart</th>
+          </tr>
+        </thead>
+        <tbody>
+    
+          <tr>
+            <td>Delicate Hand Wash</td>
+            <td>For fragile and premium fabrics</td>
+            <td>£16.50</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Delicate Hand Wash">
+                <input type="hidden" name="description" value="For fragile and premium fabrics">
+                <input type="hidden" name="price" value="£6.50">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Ironing</td>
+            <td>Pressed finish for up to 5 items</td>
+            <td>£9.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Ironing">
+                <input type="hidden" name="description" value="Pressed finish for up to 5 items">
+                <input type="hidden" name="price" value="£4.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Special Treatment</td>
+            <td>Stain removal and deep spot cleaning</td>
+            <td>£19.50</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Special Treatment">
+                <input type="hidden" name="description" value="Stain removal and deep spot cleaning">
+                <input type="hidden" name="price" value="£9.50">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Wash & Fold</td>
+            <td>General laundry - washed, dried, and folded</td>
+            <td>£29.00</td>
+            <td>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="item" value="Wash & Fold">
+                <input type="hidden" name="description" value="General laundry – washed, dried, and folded">
+                <input type="hidden" name="price" value="£10.00">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </section>
     
   </main>
 

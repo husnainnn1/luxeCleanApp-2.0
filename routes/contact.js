@@ -5,7 +5,7 @@ const router = express.Router();
 
 // Show contact form
 router.get('/', (req, res) => {
-  res.render('contact', { success: false, errors: [] });
+  res.render('contact', { success: false, errors: [], user: req.session.user });
 });
 
 // Handle contact form POST — includes sanitization and validation
@@ -31,7 +31,7 @@ router.post(
     console.log(" Message received:", { name, email, subject, message });
 
     // Show success message
-    res.render('contact', { success: true, errors: [] });
+    res.render('contact', { success: true, errors: [], user: req.session.user });
   }
 );
 
