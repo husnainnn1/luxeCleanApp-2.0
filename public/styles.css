@@ -549,15 +549,36 @@
   }
   
   @media (max-width: 768px) {
-    .menu-items {
-      display: none;
-    }
-  
-    .navbar.active .menu-items {
-      display: flex;
-      flex-direction: column;
-    }
+  .menu-items {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
   }
+
+  .btn {
+    width: 90%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .search-bar-modern {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .search-bar-modern form {
+    width: 90%;
+  }
+
+  .search-bar-modern input[type="text"] {
+    width: 100%;
+  }
+}
+
 
   /* AI Recommendation Page Styling */
 .ai-recommendation-body {
