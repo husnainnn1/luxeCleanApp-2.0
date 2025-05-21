@@ -15,6 +15,9 @@ router.post('/calculate', async (req, res) => {
   };
 
   try {
+    // Wake up the Flask API if asleep
+  await axios.get(`${process.env.FLASK_API_URL.replace('/predict', '')}/ping`);
+  
     // Send prediction request to local Flask API
     const response = await axios({
       method: 'post',

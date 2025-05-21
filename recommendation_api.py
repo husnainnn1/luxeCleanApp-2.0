@@ -73,6 +73,11 @@ def add_cors_headers(response):
     response.headers.add('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
     return response
 
+@app.route("/ping", methods=["GET"])
+def ping():
+    return "pong", 200
+
+
 #if __name__ == '__main__':
 #   app.run(port=5050, debug=True)
 
